@@ -20,7 +20,6 @@
 			}
 			body {
 				background-color: burlywood;
-				/* height: 100vh; */
 				overflow-x: hidden;
 				overflow-y: hidden;
 			}
@@ -32,7 +31,6 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				/* border: 3px solid black; */
 			}
 			.container .gameTitle {
 				font-size: 2rem;
@@ -51,14 +49,12 @@
 			.container .setName {
 				width: 300px;
 				height: fit-content;
-				/* border: 1px solid black; */
 				padding: 20px;
 				display: flex;
 				flex-direction: column;
 				box-sizing: border-box;
 				margin: 30px 0 50px;
 				box-sizing: border-box;
-				/* display: none; */
 			}
 			.container .setName > * {
 				display: block;
@@ -130,11 +126,9 @@
 				width: 100%;
 				display: flex;
 				justify-content: space-between;
-				/* border: 1px solid black; */
 			}
 
 			.Game .tombol .option {
-				/* display: none; */
 				width: 30%;
 				height: 20px;
 				border: 1px solid black;
@@ -153,7 +147,6 @@
 			}
 
 			.Game .tombol .option img {
-				/* display: none; */
 				width: 40px;
 				height: 40px;
 			}
@@ -247,7 +240,15 @@
 				const PlayerName = document.querySelector(".winner .playerName");
 				displaySetName.style.display = "none";
 				displayGame.style.display = "block";
-				PlayerName.innerHTML = nama;
+				if (nama == "") {
+					alert("Harap Isi Nama Terlebih Dahulu");
+					window.location.href =
+						"file:///C:/Users/hp/OneDrive/Documents/Web%20Developer/HTML/Latihan%20Javascript%20Dasar/game.html";
+				} else {
+					PlayerName.innerHTML = nama;
+					displaySetName.style.display = "none";
+					displayGame.style.display = "block";
+				}
 			}
 
 			function PilihOption(option) {
@@ -263,41 +264,39 @@
 				);
 				const label = document.querySelector(".winner .label");
 
-				// console.log(gambar[option]);
-				// console.log(gambar[botOption]);
 				if (option == botOption) {
 					optionUser.setAttribute("src", gambar[option]);
 					optionBot.setAttribute("src", gambar[botOption]);
-					label.innerHTML = "SERI";
+					label.innerHTML = "Yah... SERI";
 				} else if (option == 0) {
 					if (botOption == 1) {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu MENANG";
+						label.innerHTML = "Kamu MENANG🤩";
 					} else {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu KALAH";
+						label.innerHTML = "Kamu KALAH🤣<br>Yuk Coba lagi";
 					}
 				} else if (option == 1) {
 					if (botOption == 2) {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu MENANG";
+						label.innerHTML = "Kamu MENANG🤩";
 					} else {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu KALAH";
+						label.innerHTML = "Kamu KALAH🤣<br>Yuk Coba lagi";
 					}
 				} else if (option == 2) {
 					if (botOption == 0) {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu MENANG";
+						label.innerHTML = "Kamu MENANG🤩";
 					} else {
 						optionUser.setAttribute("src", gambar[option]);
 						optionBot.setAttribute("src", gambar[botOption]);
-						label.innerHTML = "Kamu KALAH";
+						label.innerHTML = "Kamu KALAH🤣<br>Yuk Coba lagi";
 					}
 				}
 			}
